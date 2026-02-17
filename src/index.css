@@ -1,0 +1,108 @@
+@import url('https://fonts.cdnfonts.com/css/cal-sans');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-shell text-slate-900 antialiased;
+  font-family: 'Cal Sans', 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.003em;
+  background-image: radial-gradient(circle at 12% -12%, rgba(241, 245, 249, 0.9), transparent 28%),
+    radial-gradient(circle at 86% -10%, rgba(226, 232, 240, 0.58), transparent 32%),
+    linear-gradient(180deg, #f4f6fb 0%, #eef2f9 100%);
+}
+
+::selection {
+  @apply bg-slate-200 text-slate-900;
+}
+
+.site-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: linear-gradient(to right, rgba(30, 41, 59, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 41, 59, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.glass-panel {
+  @apply rounded-2xl border border-slate-200/80 bg-white/95 shadow-[0_1px_0_rgba(15,23,42,0.04),0_18px_42px_rgba(15,23,42,0.08)] backdrop-blur;
+}
+
+.display-1 {
+  @apply text-4xl font-semibold leading-[1.02] tracking-[-0.03em] text-slate-900 md:text-6xl xl:text-7xl;
+}
+
+.display-2 {
+  @apply text-3xl font-semibold leading-tight tracking-[-0.03em] text-slate-900 md:text-5xl;
+}
+
+.eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-slate-500;
+}
+
+.text-gradient {
+  background: linear-gradient(105deg, #020617 10%, #1e293b 45%, #475569 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-[0_1px_0_rgba(255,255,255,0.15)_inset,0_10px_22px_rgba(15,23,42,0.24)] transition;
+}
+
+.btn-primary:hover {
+  @apply -translate-y-0.5 bg-slate-800;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition;
+}
+
+.btn-secondary:hover {
+  @apply -translate-y-0.5 border-slate-300 bg-slate-50;
+}
+
+.input-shell {
+  @apply w-full rounded-xl border border-slate-200 bg-white px-4 pb-3 pt-5 text-slate-800 outline-none transition focus:border-slate-400 focus:shadow-[0_0_0_4px_rgba(148,163,184,0.16)];
+}
+
+.floating-label {
+  @apply pointer-events-none absolute left-4 top-2 text-xs text-slate-500 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs peer-focus:text-slate-900;
+}
+
+.hero-depth {
+  position: absolute;
+  inset: -110px -70px auto auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(71, 85, 105, 0.12), rgba(71, 85, 105, 0));
+  filter: blur(1px);
+  animation: drift 9s ease-in-out infinite;
+}
+
+/* backward-compatible utilities */
+.layout-wrap { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+.section-block { @apply py-12 lg:py-16; }
+.card { @apply glass-panel; }
+.card-muted { @apply glass-panel; }
+.title-xl { @apply display-2; }
+.title-lg { @apply display-2; }
+.badge { @apply eyebrow inline-flex rounded-lg border border-slate-200 bg-slate-50 px-3 py-1 normal-case tracking-normal; }
+.btn-main { @apply btn-primary; }
+.btn-ghost { @apply btn-secondary; }
+.input-reset { @apply input-shell; }
